@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAIOLA STORE ID| Price List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(160deg, #000000 0%, #040d21 60%, #0a192f 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 15px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .app-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 18px;
+            padding: 15px 5px;
+            transition: 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .app-item:hover {
+            background: rgba(0, 210, 255, 0.15);
+            transform: translateY(-3px);
+            border-color: #00d2ff;
+        }
+
+        .app-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 8px;
+        }
+
+        .app-item span {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #0a192f;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            padding: 20px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-btn {
+            position: sticky;
+            top: 0;
+            float: right;
+            color: #ff4d4d;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .game-header {
+            color: #00d2ff;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 2px solid #00d2ff;
+            padding-bottom: 5px;
+            text-align: left;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .price-table td {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 13px;
+        }
+
+        .price-table td:last-child {
+            text-align: right;
+            color: #00d2ff;
+            font-weight: bold;
+        }
+
+        /* Tombol Chat Stok */
+        .btn-stok {
+            display: block;
+            width: 100%;
+            background: linear-gradient(90deg, #25d366, #128c7e);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-stok:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+        }
+
+        .btn-stok i {
+            margin-right: 8px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="card">
+        <h1>KAIOLA STORE ID</h1>
+        <div class="app-grid">
+            <div class="app-item" onclick="openPrice('ml')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/Mobile_Legends_Bang_Bang_logo.png/220px-Mobile_Legends_Bang_Bang_logo.png">
+                <span>MLBB</span>
+            </div>
+            <div class="app-item" onclick="openPrice('ff')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/3/36/Free_Fire_Logo.png">
+                <span>Free Fire</span>
+            </div>
+            <div class="app-item" onclick="openPrice('pubg')">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/05/PUBG_Mobile_logo.png/220px-PUBG_Mobile_logo.png">
+                <span>PUBG</span>
+            </div>
+            <div class="app-item" onclick="openPrice('capcut')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/CapCut_logo.svg/1200px-CapCut_logo.svg.png">
+                <span>CAPCUT</span>
+            </div>
+            <div class="app-item" onclick="openPrice('am')">
+                <img src="https://framerusercontent.com/images/k7l6S078G2G5uPqD59m3Yq0vF8.png">
+                <span>ALIGHT</span>
+            </div>
+            <div class="app-item" onclick="openPrice('wink')">
+                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/64/a4/08/64a40875-9c86-16e0-243e-797592928509/AppIcon-0-0-1x_U007emarketing-0-5-0-85-220.png/512x512bb.jpg" style="border-radius:10px;">
+                <span>WINK</span>
+            </div>
+            <div class="app-item" onclick="openPrice('canva')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Canva_icon_2021.svg/2048px-Canva_icon_2021.svg.png">
+                <span>CANVA</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="priceModal" class="modal" onclick="closePrice(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="document.getElementById('priceModal').style.display='none'">&times;</span>
+            <div id="modalBody"></div>
+            <a id="waBtn" href="#" class="btn-stok">
+                <i class="fab fa-whatsapp"></i> Chat Stok Admin
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const waNomor = "6285776038041"; // GANTI NOMOR WA KAMU DISINI
+
+        const dataHarga = {
+            ml: `
+                <div class="game-header">MLBB Diamonds</div>
+                <table class="price-table">
+                    <tr><td>5 Diamonds</td><td>1.437</td></tr>
+                    <tr><td>12 (11+1) Dim</td><td>3.339</td></tr>
+                    <tr><td>19 (17+2) Dim</td><td>5.239</td></tr>
+                    <tr><td>28 (25+3) Dim</td><td>7.593</td></tr>
+                    <tr><td>56 (51+5) Dim</td><td>14.760</td></tr>
+                    <tr><td>86 (78+8) Dim</td><td>21.362</td></tr>
+                    <tr><td>172 (156+16) Dim</td><td>44.460</td></tr>
+                    <tr><td>257 (234+23) Dim</td><td>64.907</td></tr>
+                    <tr><td>WDP (1X) 220 Dim</td><td>27.490</td></tr>
+                    <tr><td>WDP (2X) 440 Dim</td><td>54.709</td></tr>
+                    <tr><td>Starlight</td><td>37.375</td></tr>
+                </table>`,
+            capcut: `
+                <div class="game-header">CapCut Premium</div>
+                <table class="price-table">
+                    <tr><td>7 Hari</td><td>3.000</td></tr>
+                    <tr><td>14 Hari</td><td>6.000</td></tr>
+                    <tr><td>28 Hari</td><td>12.000</td></tr>
+                    <tr><td>45 Hari</td><td>17.500</td></tr>
+                </table>`,
+            wink: `
+                <div class="game-header">Wink Private</div>
+                <table class="price-table">
+                    <tr><td>7 Hari Acc B</td><td>1.500</td></tr>
+                    <tr><td>7 Hari Acc S</td><td>3.000</td></tr>
+                </table>`,
+            canva: `
+                <div class="game-header">Canva Pro</div>
+                <table class="price-table">
+                    <tr><td>1 Bln Member</td><td>500</td></tr>
+                    <tr><td>1 Thn Member</td><td>2.000</td></tr>
+                    <tr><td>1 Bln Edu Life</td><td>5.500</td></tr>
+                    <tr><td>Admin 1 Bulan</td><td>3.500</td></tr>
+                </table>`,
+            am: `
+                <div class="game-header">Alight Motion</div>
+                <table class="price-table">
+                    <tr><td>1 Tahun Gen</td><td>2.000</td></tr>
+                    <tr><td>1 Tahun Acc B</td><td>5.000</td></tr>
+                </table>`,
+            ff: `<div class="game-header">Free Fire</div><p style='font-size:13px'>Hubungi admin untuk list harga terbaru.</p>`,
+            pubg: `<div class="game-header">PUBG Mobile</div><p style='font-size:13px'>Hubungi admin untuk list harga terbaru.</p>`
+        };
+
+        function openPrice(key) {
+            document.getElementById('modalBody').innerHTML = dataHarga[key];
+            const waLink = "https://wa.me/" + 6285776038041 + "?text=" + encodeURI("Halo Admin Kaiola store id, saya mau tanya stok untuk " + key.toUpperCase());
+            document.getElementById('waBtn').href = waLink;
+            document.getElementById('priceModal').style.display = 'flex';
+        }
+
+        function closePrice(event) {
+            if (event.target.id === 'priceModal') {
+                document.getElementById('priceModal').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
